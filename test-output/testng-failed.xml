@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="CustomListners.Listners"/>
+  </listeners>
+  <test name="Test(failed)">
+    <classes>
+      <class name="TestModule1.Login">
+        <methods>
+          <include name="test" invocation-numbers="2"/>
+          <include name="treardown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- TestModule1.Login -->
+      <class name="TestModule1.addemployee">
+        <methods>
+          <include name="addemployeeTest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- TestModule1.addemployee -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
