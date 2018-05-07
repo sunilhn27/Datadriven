@@ -17,6 +17,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.LogStatus;
 
 import ExReader.ExcelReader;
 
@@ -32,10 +33,9 @@ public class TestBase {
 
 	@BeforeSuite
 	public static void setup() throws Exception {
-		System.out.println("af");
 		if (d == null) {
 			System.out.println("d");
-			String log4jConfPath = "log4j.properties";
+			String log4jConfPath = "F:\\SpringFramework\\IBM\\log4j.properties";
 			PropertyConfigurator.configure(log4jConfPath);
 			fs = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\java\\config\\config.properties");
 			p.load(fs);
@@ -51,11 +51,10 @@ public class TestBase {
 
 			d.manage().window().maximize();
 			d.manage().deleteAllCookies();
-			d.manage().timeouts().implicitlyWait(10l, TimeUnit.SECONDS);
+			d.manage().timeouts().implicitlyWait(30l, TimeUnit.SECONDS);
 			log.info("Succesfully loaded");
 			d.get("http://opensource.demo.orangehrmlive.com/");
 
-			System.out.println("saf");
 		}
 
 	}
@@ -71,6 +70,12 @@ public class TestBase {
 	public static void treardown() throws Exception {
 		Thread.sleep(3000);
 		log.info("closing browser");
-		d.close();
+		// d.close();
+	}
+
+	public static void LogAndReport(String message) {
+		// message = message;
+		log.info("Message: " + message);
+		r.log(LogStatus.INFO, message);
 	}
 }

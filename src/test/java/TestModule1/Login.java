@@ -6,29 +6,21 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import ExReader.dataprovider;
-import POM.LoginPage;
+import POM.LoginPageOR;
 import TestBase.TestBase;
 
 public class Login extends TestBase {
 
-	LoginPage login = new LoginPage(d);
+	LoginPageOR login = new LoginPageOR(d);
 
 	@Test(dataProvider = "getdata")
-	public void test(Hashtable<String, String> data) throws Exception {
+	public void Logintest(Hashtable<String, String> data) throws Exception {
 
 		System.out.println(data.get("username") + data.get("password"));
-		/*
-		 * d.findElement(By.id("txtUsername")).sendKeys(data.get("username"));
-		 * d.findElement(By.id("txtPassword")).sendKeys(data.get("password"));
-		 * d.findElement(By.name("Submit")).click();
-		 */
 
 		login.Username().sendKeys(data.get("username"));
 		login.password().sendKeys(data.get("password"));
 		login.submit().click();
-		Thread.sleep(2200);
-		login.Username().clear();
-		login.password().clear();
 
 	}
 

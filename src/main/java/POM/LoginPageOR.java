@@ -6,11 +6,10 @@ import org.openqa.selenium.WebElement;
 
 import TestBase.TestBase;
 
-public class LoginPage extends TestBase {
+public class LoginPageOR extends TestBase {
 
-	public LoginPage(WebDriver d) {
+	public LoginPageOR(WebDriver d) {
 		this.d = d;
-		// PageFactory.initElements(d, this);s
 	}
 
 	By username = By.id("txtUsername");
@@ -18,14 +17,18 @@ public class LoginPage extends TestBase {
 	By Submit = By.name("Submit");
 
 	public WebElement Username() {
+		TestBase.LogAndReport("entered URl");
+		TestBase.LogAndReport("Username entered");
 		return d.findElement(username);
 	}
 
 	public WebElement password() {
+		TestBase.LogAndReport("Password entered");
 		return d.findElement(password);
 	}
 
 	public WebElement submit() {
+		TestBase.LogAndReport("Clicked on submit Button");
 		return d.findElement(Submit);
 	}
 

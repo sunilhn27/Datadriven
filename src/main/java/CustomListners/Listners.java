@@ -13,7 +13,7 @@ public class Listners extends TestBase implements ITestListener {
 	public void onFinish(ITestContext arg0) {
 		String name = arg0.getName();
 		r.startTest(name);
-		System.out.println("on finish");
+		r.log(LogStatus.INFO, name + "Test Finished");
 		try {
 			screenshot(name);
 		} catch (Exception e) {
@@ -24,7 +24,7 @@ public class Listners extends TestBase implements ITestListener {
 	public void onStart(ITestContext arg0) {
 		String name = arg0.getName();
 		r.startTest(name);
-		r.log(LogStatus.INFO, "testStarted");
+		r.log(LogStatus.INFO, name + " Test Started");
 		System.out.println("on start");
 
 	}
@@ -36,8 +36,10 @@ public class Listners extends TestBase implements ITestListener {
 	public void onTestFailure(ITestResult arg0) {
 		String name = arg0.getName();
 		try {
+			Thread.sleep(1500);
 			screenshot(name);
 			r.attachScreenshot("F:\\SpringFramework\\IBM\\src\\main\\resources\\Screenshot\\" + name + ".jpg");
+			r.log(LogStatus.FAIL, name + "Test Got Failed");
 			r.log(LogStatus.FAIL, "screen shot taken");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -46,12 +48,15 @@ public class Listners extends TestBase implements ITestListener {
 	}
 
 	public void onTestSkipped(ITestResult arg0) {
+		String name = arg0.getName();
 		System.out.println("on skipped");
-		r.log(LogStatus.SKIP, "test Skipped for somereason");
+		r.log(LogStatus.SKIP, name + "test Skipped for somereason");
 
 	}
 
 	public void onTestStart(ITestResult arg0) {
+		String name = arg0.getName();
+		r.log(LogStatus.INFO, name + "Test start");
 		System.out.println("on start");
 	}
 

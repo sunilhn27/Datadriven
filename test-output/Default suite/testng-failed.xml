@@ -3,13 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="TestModule1.addemployee">
+      <class name="rough.deleteemp">
         <methods>
-          <include name="treardown"/>
-          <include name="addemployeeTest" invocation-numbers="0"/>
-          <include name="setup"/>
+          <include name="adminclick"/>
         </methods>
-      </class> <!-- TestModule1.addemployee -->
+      </class> <!-- rough.deleteemp -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

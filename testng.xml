@@ -8,7 +8,7 @@
 		<classes>
 			<class name="TestModule1.Login" />
 			<class name="TestModule1.addemployee" />
-
+			<class name="TestModule1.Deleteemp" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
